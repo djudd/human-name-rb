@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/academia-edu/people.git
+  revision: 6c6b6f051259199eb5be7fa55760ab4733248c49
+  specs:
+    people (0.3.1)
+
 PATH
   remote: .
   specs:
@@ -9,6 +15,8 @@ GEM
   specs:
     diff-lcs (1.2.5)
     ffi (1.9.10)
+    human_name_parser (1.0.1)
+    namae (0.10.1)
     rake (10.4.2)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
@@ -29,7 +37,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  human_name_parser
   humanname!
+  namae
+  people!
   rake (~> 10.4.2)
   rspec (~> 3.4.0)
   rubygems-tasks (~> 0.2.4)

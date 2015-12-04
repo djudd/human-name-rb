@@ -8,21 +8,28 @@ See the [`human_name` docs](djudd.github.io/human-name) for details.
 ```ruby
   require 'humanname'
 
-  name = HumanName.parse("Doe, Jane")
-  name.surname
+  doe_jane = HumanName.parse("Doe, Jane")
+  doe_jane.surname
   => "Doe"
-  name.given_name
+  doe_jane.given_name
   => "Jane"
-  name.initials
+  doe_jane.initials
   => "J"
 
-  name = HumanName.parse("J. Doe")
-  name.surname
+  j_doe = HumanName.parse("J. Doe")
+  j_doe.surname
   => "Doe"
-  name.given_name
+  j_doe.given_name
   => nil
-  name.initials
+  j_doe.initials
   => "J"
+
+  j_doe == doe_jane
+  => true
+  j_doe == HumanName.parse("John Doe")
+  => true
+  doe_jane == HumanName.parse("John Doe")
+  => false
 ```
 
 # Supported environments
@@ -45,3 +52,28 @@ from `human-name/target/release`, and run `bundle exec rake` to ensure the
 specs are passing.
 
 Depends on the `ffi` gem.
+
+# Benchmark results
+
+Comparing to [`people`](https://github.com/academia-edu/people), [`namae`](https://github.com/berkmancenter/namae), and [`human_name_parser`](https://github.com/abachman/human_name_parser),
+on 16k real examples taken mostly from PubMed author fields.
+
+```
+$ bundle exec rake benchmark
+people gem:
+  2.280000   0.010000   2.290000 (  2.313764)
+namae gem:
+  2.710000   0.020000   2.730000 (  2.745188)
+human_name_parser gem:
+  1.640000   0.010000   1.650000 (  1.659007)
+this gem:
+  0.320000   0.030000   0.350000 (  0.349284)
+```
+
+Our implementation uses a similar strategy to `people` and `human_name_parser`
+but covers significantly more edge cases, and also supports comparison.
+(`human_name_parser` also covers fewer edge cases than `people`, as of writing,
+which probably explains its speed advantage.)
+
+`namae` uses a formal grammar, and so probably captures some cases this gem
+does not, although it certainly also misses some which this gem captures.
