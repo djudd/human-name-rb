@@ -25,6 +25,13 @@ describe HumanName do
     it 'returns nil on failure' do
       expect(HumanName.parse 'nope').to be_nil
     end
+
+    it 'handles non-UTF8 encoding' do
+      input = "Björn O'Malley-Muñoz".encode("ISO-8859-1")
+      n = HumanName.parse(input)
+      expect(n.given_name).to eq("Björn") # normalized nfkd
+      expect(n.surname).to eq("O'Malley-Muñoz") # normalized nfkd
+    end
   end
 
   describe '==' do
@@ -69,6 +76,7 @@ describe HumanName do
 
   it 'does not leak memory' do
     def rss
+      GC.start
       `ps -o rss= -p #{Process.pid}`.chomp.to_i
     end
 
