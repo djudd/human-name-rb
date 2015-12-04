@@ -9,6 +9,7 @@ describe HumanName do
       expect(n.middle_names).to be_nil
       expect(n.suffix).to be_nil
       expect(n.display_full).to eq('Jane Doe')
+      expect(n.goes_by_middle_name).to be false
     end
 
     it 'parses complex name' do
@@ -18,6 +19,7 @@ describe HumanName do
       expect(n.middle_names).to eq('Allen')
       expect(n.suffix).to eq('Jr.')
       expect(n.display_full).to eq('John Allen Q. de la MacDonald, Jr.')
+      expect(n.goes_by_middle_name).to be false
     end
 
     it 'returns nil on failure' do

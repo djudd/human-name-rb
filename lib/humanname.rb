@@ -61,6 +61,10 @@ module HumanName
         NativeString.wrap(pointer)
       end
     end
+
+    def goes_by_middle_name
+      Native.human_name_goes_by_middle_name(self)
+    end
   end
 
   def self.parse(string)
