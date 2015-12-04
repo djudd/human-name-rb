@@ -65,6 +65,15 @@ module HumanName
     def goes_by_middle_name
       Native.human_name_goes_by_middle_name(self)
     end
+
+    JSON_PARTS = %w( surname given_name first_initial middle_initials middle_names suffix ).map(&:to_sym)
+
+    def as_json
+      JSON_PARTS.inject({}) do |memo, part|
+        memo[part] = send(part)
+        memo
+      end
+    end
   end
 
   def self.parse(string)

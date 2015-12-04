@@ -55,6 +55,18 @@ describe HumanName do
     end
   end
 
+  it 'implements as_json' do
+    n = HumanName.parse("JOHN ALLEN Q DE LA MACDONALD JR")
+    expect(n.as_json).to eq({
+      given_name: 'John',
+      surname: 'de la MacDonald',
+      middle_names: 'Allen',
+      first_initial: 'J',
+      middle_initials: 'AQ',
+      suffix: 'Jr.',
+    })
+  end
+
   it 'does not leak memory' do
     def rss
       `ps -o rss= -p #{Process.pid}`.chomp.to_i
