@@ -3,11 +3,24 @@ require 'humanname/version'
 
 module HumanName
   UTF8 = 'UTF-8'.freeze
-  NAME_PARTS = %w( surname given_name initials first_initial middle_initials middle_names suffix display_short display_full ).freeze
+  NAME_PARTS = %w(
+    surname
+    given_name
+    initials
+    first_initial
+    middle_initials
+    middle_names
+    suffix
+    display_first_last
+    display_full
+    display_initial_surname
+  ).freeze
 
   module Native
     extend FFI::Library
-    ffi_lib File.expand_path('../libhuman_name.so', __FILE__)
+
+    extension = RUBY_PLATFORM =~ /darwin|mac os/i ? 'dylib' : 'so'
+    ffi_lib File.expand_path("../libhuman_name.#{extension}", __FILE__)
 
     attach_function :human_name_parse, [:string], :pointer
     attach_function :human_name_consistent_with, [:pointer, :pointer], :bool
@@ -18,6 +31,8 @@ module HumanName
     end
 
     attach_function :human_name_goes_by_middle_name, [:pointer], :bool
+    attach_function :human_name_byte_len, [:pointer], :uint32
+
     attach_function :human_name_free_name, [:pointer], :void
     attach_function :human_name_free_string, [:pointer], :void
   end
@@ -64,6 +79,10 @@ module HumanName
 
     def goes_by_middle_name
       Native.human_name_goes_by_middle_name(self)
+    end
+
+    def length
+      Native.human_name_byte_len(self)
     end
 
     JSON_PARTS = %w( surname given_name first_initial middle_initials middle_names suffix ).map(&:to_sym)

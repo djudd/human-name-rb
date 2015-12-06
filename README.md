@@ -36,8 +36,9 @@ See the [`human_name` docs](http://djudd.github.io/human-name) for details.
 
 # Supported environments
 
-Without modification, 64-bit Linux. Depends on a `.so` dynamic library built on
-Travis' container  infrastructure, which means Ubuntu 12.04.
+Without modification, 64-bit Linux or OS X 10.9+. Depends on a `.so` or `.dylib`
+dynamic library built on Travis' container infrastructure, which means Ubuntu 12.04
+or OS X 10.9.5.
 
 In theory, anywhere where the nightly Rust compiler will run. First, build your
 own `libhuman_name.so` (or `libhuman_name.dylib` on OS X):
