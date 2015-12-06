@@ -13,3 +13,4 @@ matrix:
   allow_failures:
   - rvm: jruby-19mode
   - rvm: rbx
+  - rvm: "2.2", os: "osx" # Ruby 2.2 doesn't seem to be available on OS X on Travis, but works for me locally
