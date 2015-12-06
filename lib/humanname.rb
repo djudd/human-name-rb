@@ -90,7 +90,7 @@ module HumanName
     def as_json(options = {})
       # We take an "options" argument for minimal compatibility with ActiveSupport,
       # but don't actually respect it
-      %i( root only except include ).each do |opt|
+      [:root, :only, :except, :include].each do |opt|
         raise ArgumentError.new("Unsupported option: #{opt}") if options[opt]
       end
 
