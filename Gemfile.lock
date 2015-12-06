@@ -7,7 +7,7 @@ GIT
 PATH
   remote: .
   specs:
-    humanname (0.2.0)
+    humanname (0.2.1)
       ffi (~> 1.9.1)
 
 GEM
