@@ -87,7 +87,13 @@ module HumanName
 
     JSON_PARTS = %w( surname given_name first_initial middle_initials middle_names suffix ).map(&:to_sym)
 
-    def as_json
+    def as_json(options = {})
+      # We take an "options" argument for minimal compatibility with ActiveSupport,
+      # but don't actually respect it
+      %i( root only except include ).each do |opt|
+        raise ArgumentError.new("Unsupported option: #{opt}") if options[opt]
+      end
+
       JSON_PARTS.inject({}) do |memo, part|
         memo[part] = send(part)
         memo
