@@ -99,6 +99,11 @@ module HumanName
         memo
       end
     end
+
+    def inspect
+      "HumanName::Name(#{display_full})"
+    end
+
   end
 
   def self.parse(string)
