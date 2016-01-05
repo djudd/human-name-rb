@@ -38,17 +38,21 @@ module HumanName
   end
 
   class NativeString < String
+    DESTRUCTOR = Native.method(:human_name_free_string)
+
     def self.wrap(pointer)
       new(pointer) unless pointer.null?
     end
 
     def initialize(pointer)
-      @pointer = FFI::AutoPointer.new(pointer, Native.method(:human_name_free_string))
+      @pointer = FFI::AutoPointer.new(pointer, DESTRUCTOR)
       super(@pointer.read_string.force_encoding(UTF8))
     end
   end
 
   class Name < FFI::AutoPointer
+    DESTRUCTOR = Native.method(:human_name_free_name)
+
     def self.parse(string)
       string = string.encode(UTF8) unless string.encoding == UTF8
       pointer = Native.human_name_parse(string)
@@ -56,7 +60,7 @@ module HumanName
     end
 
     def initialize(pointer)
-      super(pointer, Native.method(:human_name_free_name))
+      super(pointer, DESTRUCTOR)
     end
 
     def ==(other)
