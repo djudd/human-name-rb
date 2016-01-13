@@ -69,6 +69,16 @@ describe HumanName do
     end
   end
 
+  describe 'matches_slug_or_localpart' do
+    it 'is true given match' do
+      expect(HumanName.parse("Jane Doe").matches_slug_or_localpart('janexdoe')).to be_truthy
+    end
+
+    it 'is false given non-match' do
+      expect(HumanName.parse("Jane Doe").matches_slug_or_localpart('johnxdoe')).to be_falsey
+    end
+  end
+
   it 'implements as_json' do
     n = HumanName.parse("JOHN ALLEN Q DE LA MACDONALD JR")
     expect(n.as_json).to eq({
