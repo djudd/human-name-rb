@@ -100,7 +100,7 @@ describe HumanName do
     before = rss
 
     100000.times do
-      n = HumanName.parse("John Doe")
+      n = HumanName.parse("Reallyverylongfirstname Reallyverylonglastname")
       HumanName::NAME_PARTS.each { |part| n.send(part) }
     end
 
