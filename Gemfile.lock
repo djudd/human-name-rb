@@ -7,7 +7,7 @@ GIT
 PATH
   remote: .
   specs:
-    humanname (0.3.2)
+    humanname (0.3.3)
       ffi (~> 1.9.1)
 
 GEM
@@ -54,4 +54,4 @@ DEPENDENCIES
   rubygems-tasks (~> 0.2.4)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
