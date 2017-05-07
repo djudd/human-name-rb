@@ -1,9 +1,15 @@
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
 require 'rubygems/package_task'
+require 'helix_runtime/build_task'
+
+HelixRuntime::BuildTask.new(:build) do |task|
+  task.name = "humanname"
+end
 
 RSpec::Core::RakeTask.new(:spec)
 
+task spec: :build
 task default: :spec
 
 task :benchmark do

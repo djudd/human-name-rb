@@ -9,10 +9,11 @@ Gem::Specification.new do |s|
   s.authors     = ["David Judd"]
   s.email       = 'david.a.judd@gmail.com'
   s.files       = %w(humanname.gemspec Gemfile) + Dir.glob("{lib,spec}/**")
-  s.homepage    = 'https://https://github.com/djudd/human-name-rb'
+  s.homepage    = 'https://github.com/djudd/human-name-rb'
   s.license     = 'Apache-2.0'
   s.platform    = Gem::Platform::CURRENT # Linux only, for now
-  s.add_runtime_dependency 'ffi', '~> 1.9.1'
+  s.required_ruby_version = '>= 2.2.0'
+  s.add_runtime_dependency 'helix_runtime', '~> 0.6.0'
   s.add_development_dependency 'rake', '~> 10.4.2'
   s.add_development_dependency 'rspec', '~> 3.4.0'
   s.add_development_dependency 'rubygems-tasks', '~> 0.2.4'

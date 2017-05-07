@@ -36,24 +36,19 @@ See the [`human_name` docs](http://djudd.github.io/human-name) for details.
 
 # Supported environments
 
-Without modification, 64-bit Linux or OS X 10.9+. Depends on a `.so` or `.dylib`
-dynamic library built on Travis' container infrastructure, which means Ubuntu 12.04
-or OS X 10.9.5.
+With just `bundle`/`gem install`, OS X 10.12+.
 
-In theory, anywhere where the nightly Rust compiler will run. First, build your
-own `libhuman_name.so` (or `libhuman_name.dylib` on OS X):
+If you're willing to do a little more work, anywhere supported by [Helix](https://github.com/tildeio/helix)
+and the nightly Rust compiler:
 ```bash
 curl -s https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly
-git clone git@github.com:djudd/human-name.git
-cd human-name
-cargo build --release
+git clone git@github.com:djudd/human-name-rb.git
+cd human-name-rb
+bundle exec rake
 ```
 
-Then, fork this repo (`djudd/human-name-rb`), replace `libhuman_name.so` with
-the file from `human-name/target/release`, and run `bundle exec rake` to ensure
-the specs are passing.
-
-Depends on the `ffi` gem.
+That will give you a .gem file in pkg/ which should work in environments similar
+to the one in which it was built.
 
 # Benchmark results
 
@@ -63,13 +58,13 @@ on 16k real examples taken mostly from PubMed author fields:
 ```
 $ bundle exec rake benchmark
 people gem:
-  2.280000   0.010000   2.290000 (  2.313764)
+  3.010000   0.030000   3.040000 (  3.032075)
 namae gem:
-  2.710000   0.020000   2.730000 (  2.745188)
+  3.550000   0.080000   3.630000 (  3.630643)
 human_name_parser gem:
-  1.640000   0.010000   1.650000 (  1.659007)
+  1.960000   0.030000   1.990000 (  1.991358)
 this gem:
-  0.320000   0.030000   0.350000 (  0.349284)
+  0.100000   0.000000   0.100000 (  0.107794)
 ```
 
 Our implementation uses a similar strategy to `people` and `human_name_parser`
