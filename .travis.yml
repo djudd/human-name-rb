@@ -12,6 +12,7 @@ before_install:
   - if [ ! -e "$HOME/.cargo/bin" ]; then curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly -y; fi
   - export PATH="$HOME/.cargo/bin:$PATH"
   - rustup default nightly
+install: bundle install --without benchmark
 cache:
   directories:
     - $HOME/.rvm/gems

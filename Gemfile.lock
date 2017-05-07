@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/academia-edu/people.git
+  remote: https://github.com/academia-edu/people
   revision: 6c6b6f051259199eb5be7fa55760ab4733248c49
   specs:
     people (0.3.1)
