@@ -99,9 +99,22 @@ describe HumanName do
 
     before = rss
 
+    name_parts = %w(
+      surname
+      given_name
+      initials
+      first_initial
+      middle_initials
+      middle_names
+      suffix
+      display_first_last
+      display_full
+      display_initial_surname
+    ).freeze
+
     100000.times do
       n = HumanName.parse("Reallyverylongfirstname Reallyverylonglastname")
-      HumanName::NAME_PARTS.each { |part| n.send(part) }
+      name_parts.each { |part| n.send(part) }
     end
 
     expect(rss).to be < 2 * before
