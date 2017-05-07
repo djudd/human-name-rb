@@ -17,7 +17,3 @@ cache:
     - $HOME/.rvm/gems
     - $HOME/.cargo
     - $HOME/.multirust
-addons:
-  apt:
-    packages:
-    - g++-mingw-w64 # For dlltool
