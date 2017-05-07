@@ -36,22 +36,19 @@ See the [`human_name` docs](http://djudd.github.io/human-name) for details.
 
 # Supported environments
 
-Without modification, 64-bit Linux or OS X 10.9+. Depends on a `.so` or `.dylib`
-dynamic library built on Travis' container infrastructure, which means Ubuntu 12.04
-or OS X 10.9.5.
+With just `bundle`/`gem install`, OS X 10.12+.
 
-In theory, anywhere where the nightly Rust compiler will run. First, build your
-own `libhuman_name.so` (or `libhuman_name.dylib` on OS X):
+If you're willing to do a little more work, anywhere supported by [Helix](https://github.com/tildeio/helix)
+and the nightly Rust compiler:
 ```bash
 curl -s https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly
-git clone git@github.com:djudd/human-name.git
-cd human-name
-cargo build --release
+git clone git@github.com:djudd/human-name-rb.git
+cd human-name-rb
+bundle exec rake
 ```
 
-Then, fork this repo (`djudd/human-name-rb`), replace `libhuman_name.so` with
-the file from `human-name/target/release`, and run `bundle exec rake` to ensure
-the specs are passing.
+That will give you a .gem file in pkg/ which should work in environments similar
+to the one in which it was built.
 
 # Benchmark results
 
