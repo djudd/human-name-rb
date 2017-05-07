@@ -3,14 +3,21 @@ os:
   - linux
   - osx
 rvm:
-  - "1.9.3"
-  - "2.0.0"
+  - "2.0"
   - "2.1"
   - "2.2"
-  - jruby-19mode
-  - rbx
-matrix:
-  allow_failures:
-  - rvm: jruby-19mode
-  - rvm: rbx
-  - { rvm: "2.2", os: "osx" } # Ruby 2.2 doesn't seem to be available on OS X on Travis, but works for me locally
+  - "2.3"
+  - "2.4"
+before_install:
+  - if [ ! -e "$HOME/.cargo/bin" ]; then curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly -y; fi
+  - export PATH="$HOME/.cargo/bin:$PATH"
+  - rustup default nightly
+cache:
+  directories:
+    - $HOME/.rvm/gems
+    - $HOME/.cargo
+    - $HOME/.multirust
+addons:
+  apt:
+    packages:
+    - g++-mingw-w64 # For dlltool
