@@ -1,12 +1,11 @@
 require 'helix_runtime'
 require 'humanname/version'
+require 'humanname/native'
 
 module HumanName
-  require_relative 'human_name_rb/native.bundle'
+  Name = RustHumanName
 
   UTF8 = 'UTF-8'.freeze
-
-  Name = RustHumanName
 
   class Name
     def self.parse(string)

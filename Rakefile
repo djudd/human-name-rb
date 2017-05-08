@@ -4,7 +4,7 @@ require 'rubygems/package_task'
 require 'helix_runtime/build_task'
 
 HelixRuntime::BuildTask.new(:build) do |task|
-  task.name = "human_name_rb"
+  task.name = "humanname"
 end
 
 RSpec::Core::RakeTask.new(:spec)
