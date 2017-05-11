@@ -27,6 +27,5 @@ deploy:
   file: pkg/*
   skip_cleanup: true
   on:
-    branch: master
-    rust: nightly
+    rvm: 2.2
     tags: true
