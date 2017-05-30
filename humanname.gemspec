@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.description = "A library for parsing and comparing human names. Wraps the Rust crate `human_name`."
   s.authors     = ["David Judd"]
   s.email       = 'david.a.judd@gmail.com'
-  s.files       = %w(humanname.gemspec Gemfile) + Dir.glob("{lib,spec}/**")
+  s.files       = %w(humanname.gemspec Gemfile) + Dir.glob("{lib,spec}/**/*")
   s.homepage    = 'https://github.com/djudd/human-name-rb'
   s.license     = 'Apache-2.0'
   s.platform    = Gem::Platform::CURRENT # Linux only, for now
