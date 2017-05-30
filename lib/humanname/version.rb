@@ -1,3 +1,3 @@
 module HumanName
-  VERSION = '0.4.0-travis'.freeze
+  VERSION = '0.4.1'.freeze
 end
