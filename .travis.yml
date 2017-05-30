@@ -12,11 +12,8 @@ before_install:
   nightly -y; fi
 - export PATH="$HOME/.cargo/bin:$PATH"
 - rustup default nightly
-- pwd
 install: bundle install --without benchmark
 before_cache:
-- pwd
-- ls
 - cp -r pkg $HOME
 matrix:
   allow_failures:
