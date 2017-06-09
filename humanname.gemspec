@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.license     = 'Apache-2.0'
   s.platform    = Gem::Platform::CURRENT
   s.required_ruby_version = '>= 2.2.0'
-  s.add_runtime_dependency 'helix_runtime', '~> 0.6.0'
+  s.add_runtime_dependency 'helix_runtime', '~> 0.6.1'
   s.add_development_dependency 'rake', '~> 10.4.2'
   s.add_development_dependency 'rspec', '~> 3.4.0'
   s.add_development_dependency 'rubygems-tasks', '~> 0.2.4'

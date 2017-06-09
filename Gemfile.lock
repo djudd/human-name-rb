@@ -7,8 +7,8 @@ GIT
 PATH
   remote: .
   specs:
-    humanname (0.4.2)
-      helix_runtime (~> 0.6.0)
+    humanname (0.4.3)
+      helix_runtime (~> 0.6.1)
 
 GEM
   remote: https://rubygems.org/
