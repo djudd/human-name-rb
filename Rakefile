@@ -2,9 +2,7 @@ require 'rspec/core/rake_task'
 require 'rubygems/package_task'
 require 'helix_runtime/build_task'
 
-HelixRuntime::BuildTask.new(:build) do |task|
-  task.name = "humanname"
-end
+HelixRuntime::BuildTask.new
 
 # This needs to be after the Helix build so that the generated native.* files
 # will be included in the gemspec file glob.
