@@ -36,12 +36,12 @@ See the [`human_name` docs](http://djudd.github.io/human-name) for details.
 
 # Supported environments
 
-With just `bundle`/`gem install`, OS X 10.12+.
+With just `bundle`/`gem install`, OS X 10.13+ & Ubuntu Trusty or later.
 
 If you're willing to do a little more work, anywhere supported by [Helix](https://github.com/tildeio/helix)
 and the nightly Rust compiler:
 ```bash
-curl -s https://static.rust-lang.org/rustup.sh | sh -s -- --channel=nightly
+curl https://sh.rustup.rs -sSf | sh -s -- --channel=nightly
 git clone git@github.com:djudd/human-name-rb.git
 cd human-name-rb
 bundle exec rake

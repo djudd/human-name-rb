@@ -19,6 +19,7 @@ task :benchmark do
   require 'human_name_parser'
   require 'benchmark'
   require 'humanname'
+  require 'open-uri'
 
   input = open("https://raw.githubusercontent.com/djudd/human-name/master/tests/benchmark-names.txt").each_line.to_a
 
