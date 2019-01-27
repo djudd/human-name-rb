@@ -7,7 +7,7 @@ GIT
 PATH
   remote: .
   specs:
-    humanname (0.5.0)
+    humanname (0.5.0-x86_64-darwin-16)
       helix_runtime (~> 0.6.1)
 
 GEM
