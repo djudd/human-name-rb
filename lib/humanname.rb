@@ -27,6 +27,10 @@ module HumanName
         raise ArgumentError.new("Unsupported option: #{opt}") if options[opt]
       end
 
+      to_h
+    end
+
+    def to_h
       JSON_PARTS.inject({}) do |memo, part|
         memo[part] = send(part)
         memo

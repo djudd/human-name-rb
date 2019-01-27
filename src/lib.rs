@@ -54,7 +54,7 @@ ruby! {
         }
 
         def middle_names(&self) -> Option<String> {
-            self.underlying.middle_names().map(|a| a.join(" "))
+            self.underlying.middle_name().map(|s| s.to_string())
         }
 
         def suffix(&self) -> Option<String> {
@@ -62,15 +62,15 @@ ruby! {
         }
 
         def display_first_last(&self) -> String {
-            self.underlying.display_first_last()
+            self.underlying.display_first_last().to_string()
         }
 
         def display_full(&self) -> String {
-            self.underlying.display_full()
+            self.underlying.display_full().to_string()
         }
 
         def display_initial_surname(&self) -> String {
-            self.underlying.display_initial_surname()
+            self.underlying.display_initial_surname().to_string()
         }
 
         def goes_by_middle_name(&self) -> bool {
