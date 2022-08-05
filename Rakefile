@@ -1,16 +1,8 @@
 require 'rspec/core/rake_task'
 require 'rubygems/package_task'
-require 'helix_runtime/build_task'
-
-HelixRuntime::BuildTask.new
-
-# This needs to be after the Helix build so that the generated native.* files
-# will be included in the gemspec file glob.
-require 'bundler/gem_tasks'
 
 RSpec::Core::RakeTask.new(:spec)
 
-task spec: :build
 task default: :spec
 
 task :benchmark do

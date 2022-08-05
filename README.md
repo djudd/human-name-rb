@@ -38,13 +38,9 @@ See the [`human_name` docs](http://djudd.github.io/human-name) for details.
 
 With just `bundle`/`gem install`, OS X 10.13+ & Ubuntu Trusty or later.
 
-If you're willing to do a little more work, anywhere supported by [Helix](https://github.com/tildeio/helix)
-and the nightly Rust compiler:
-```bash
-curl https://sh.rustup.rs -sSf | sh -s -- --channel=nightly
-git clone git@github.com:djudd/human-name-rb.git
-cd human-name-rb
-bundle exec rake
+If you're willing to do a little more work, anywhere supported by the Rust compiler:
+```sh
+./build/update-rust.sh
 ```
 
 That will give you a .gem file in pkg/ which should work in environments similar
