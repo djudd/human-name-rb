@@ -57,7 +57,7 @@ module HumanName
           'libhuman_name.dylib'
         when 'linux'
           'libhuman_name.so'
-        when 'windows'
+        when /mswin|mingw/
           'human_name.dll'
         else
           raise UnsupportedPlatform.new
