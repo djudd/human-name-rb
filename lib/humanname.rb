@@ -68,7 +68,7 @@ module HumanName
       cpu = 'x86_64' if cpu == 'x64'
 
       File.expand_path(
-        File.join('../native/', platform.cpu, filename),
+        File.join('../native/', cpu, filename),
         __FILE__,
       )
     end
