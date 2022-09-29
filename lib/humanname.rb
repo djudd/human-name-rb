@@ -18,7 +18,8 @@ module HumanName
 
   class UnsupportedPlatform < StandardError
     def initialize
-      super("Unsupported platform: #{RUBY_PLATFORM}")
+      platform = Gem::Platform.local
+      super("Unsupported platform: #{platform.os}-#{platform.cpu}")
     end
   end
 
