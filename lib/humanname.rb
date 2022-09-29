@@ -63,6 +63,9 @@ module HumanName
           raise UnsupportedPlatform.new
         end
 
+      cpu = platform.cpu
+      cpu = 'x86_64' if cpu == 'x86' # For some reason Windows can report just x86, but we might as well assume it's 64-bit because we're going to fail otherwise anyway
+
       File.expand_path(
         File.join('../native/', platform.cpu, filename),
         __FILE__,
