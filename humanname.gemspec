@@ -11,10 +11,10 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/djudd/human-name-rb'
   s.license     = 'Apache-2.0'
   s.platform    = Gem::Platform::CURRENT
-  s.required_ruby_version = '>= 2.2.0'
+  s.required_ruby_version = '>= 2.7.0'
   s.add_runtime_dependency 'ffi', '~> 1.15.1'
-  s.add_development_dependency 'rake', '~> 10.4.2'
+  s.add_development_dependency 'rake', '~> 13.0.6'
   s.add_development_dependency 'rspec', '~> 3.4.0'
-  s.add_development_dependency 'rubygems-tasks', '~> 0.2.4'
-  s.add_development_dependency 'pry', '~> 0.10.3'
+  s.add_development_dependency 'rubygems-tasks', '~> 0.2.5'
+  s.add_development_dependency 'pry', '~> 0.13.1'
 end
