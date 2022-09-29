@@ -1,8 +1,6 @@
 # human-name-rb
 Ruby bindings for the Rust crate [`human_name`](https://github.com/djudd/human-name), a library for parsing and comparing human names.
 
-[![Build Status](https://travis-ci.org/djudd/human-name-rb.svg?branch=master)](https://travis-ci.org/djudd/human-name-rb)
-
 See the [`human_name` docs](http://djudd.github.io/human-name) for details.
 
 # Examples
