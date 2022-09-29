@@ -92,6 +92,8 @@ describe HumanName do
   end
 
   it 'does not leak memory' do
+    skip unless ['linux', 'darwin'].include?(Gem::Platform.local.os)
+
     def rss
       GC.start
       `ps -o rss= -p #{Process.pid}`.chomp.to_i
