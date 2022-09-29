@@ -36,12 +36,9 @@ See the [`human_name` docs](http://djudd.github.io/human-name) for details.
 
 # Supported environments
 
-With just `bundle`/`gem install`, OS X 10.13+ & Ubuntu Trusty or later.
+Linux, MacOS, and Windows, as of the versions currently supported by GitHub Actions.
+x86 only, except for Apple Silicon.
 
-If you're willing to do a little more work, anywhere supported by the Rust compiler:
-```sh
-./build/update-rust.sh
-```
-
-That will give you a .gem file in pkg/ which should work in environments similar
-to the one in which it was built.
+If you have access to another environment which is supported by the Rust compiler,
+it should be relatively straightforward to fork the gem and add support. If this
+environment is additionally supported by GitHub Actions, I'm also happy to accept a PR.

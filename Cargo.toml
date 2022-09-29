@@ -5,7 +5,6 @@ authors = ["David Judd <david.a.judd@gmail.com>"]
 
 [dependencies]
 human_name = "1.4"
-helix = "0.7"
 
 [lib]
-crate-type = ["rlib", "dylib"]
+crate-type = ["cdylib"]

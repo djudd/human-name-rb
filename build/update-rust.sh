@@ -7,13 +7,17 @@ then
   curl https://sh.rustup.rs -sSf | sh -s
 fi
 
-mkdir tmp
-pushd tmp
+TMP=$(mktemp -d)
+trap 'rm -rf -- "$TMP"' EXIT
+
+pushd "$TMP"
 git clone https://github.com/djudd/human-name.git
 cd human-name
-cargo build --release
+rustup target add x86_64-apple-darwin
+cargo build --target x86_64-apple-darwin --release
+rustup target add x86_64-unknown-linux-gnu
+cargo build --target x86_64-unknown-linux-gnu --release
 popd
 
-cp tmp/human-name/target/release/libhuman_name.dylib lib/
-rm -rf tmp
-
+cp "$TMP/human-name/target/release/libhuman_name.dylib" lib/
+cp "$TMP/human-name/target/release/libhuman_name.so" lib/
