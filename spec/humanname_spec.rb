@@ -9,7 +9,7 @@ describe HumanName do
       expect(n.given_name).to eq('Jane')
       expect(n.surname).to eq('Doe')
       expect(n.middle_names).to be_nil
-      expect(n.suffix).to be_nil
+      expect(n.generational_suffix).to be_nil
       expect(n.display_full).to eq('Jane Doe')
       expect(n.display_first_last).to eq('Jane Doe')
       expect(n.display_initial_surname).to eq('J. Doe')
@@ -22,7 +22,7 @@ describe HumanName do
       expect(n.given_name).to eq('John')
       expect(n.surname).to eq('de la MacDonald')
       expect(n.middle_names).to eq('Allen')
-      expect(n.suffix).to eq('Jr.')
+      expect(n.generational_suffix).to eq('Jr.')
       expect(n.display_full).to eq('John Allen Q. de la MacDonald, Jr.')
       expect(n.display_first_last).to eq('John de la MacDonald')
       expect(n.display_initial_surname).to eq('J. de la MacDonald')
@@ -69,16 +69,6 @@ describe HumanName do
     end
   end
 
-  describe 'matches_slug_or_localpart' do
-    it 'is true given match' do
-      expect(HumanName.parse("Jane Doe").matches_slug_or_localpart('janexdoe')).to be_truthy
-    end
-
-    it 'is false given non-match' do
-      expect(HumanName.parse("Jane Doe").matches_slug_or_localpart('johnxdoe')).to be_falsey
-    end
-  end
-
   it 'implements as_json' do
     n = HumanName.parse("JOHN ALLEN Q DE LA MACDONALD JR")
     expect(n.as_json).to eq({
@@ -87,7 +77,7 @@ describe HumanName do
       middle_names: 'Allen',
       first_initial: 'J',
       middle_initials: 'AQ',
-      suffix: 'Jr.',
+      generational_suffix: 'Jr.',
     })
   end
 
@@ -108,7 +98,7 @@ describe HumanName do
       first_initial
       middle_initials
       middle_names
-      suffix
+      generational_suffix
       display_first_last
       display_full
       display_initial_surname
