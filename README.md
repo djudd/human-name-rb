@@ -35,8 +35,11 @@ See the [`human_name` docs](http://djudd.github.io/human-name) for details.
 # Supported environments
 
 Linux, MacOS, and Windows, as of the versions currently supported by GitHub Actions.
-x86 only, except for Apple Silicon.
+x86-64 or Apple Silicon. Ruby 2.7 or later.
 
 If you have access to another environment which is supported by the Rust compiler,
-it should be relatively straightforward to fork the gem and add support. If this
-environment is additionally supported by GitHub Actions, I'm also happy to accept a PR.
+it should be relatively straightforward to fork the library and add support. You'll need
+to build [`human_name`](http://github.com/djudd/human-name), copy the resulting library
+from `target/release/` in that repository to `lib/native/<arch>/` in this one,
+and modify `native_lib_path` appropriately. If this environment is additionally supported
+by GitHub Actions, I'm also happy to accept a PR.
