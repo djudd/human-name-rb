@@ -10,7 +10,7 @@ module HumanName
     first_initial
     middle_initials
     middle_names
-    suffix
+    generational_suffix
     display_first_last
     display_full
     display_initial_surname
@@ -42,7 +42,6 @@ module HumanName
         attach_function "human_name_#{part}".to_sym, [:pointer], :pointer
       end
 
-      attach_function :human_name_matches_slug_or_localpart, [:pointer, :string], :bool
       attach_function :human_name_goes_by_middle_name, [:pointer], :bool
       attach_function :human_name_byte_len, [:pointer], :uint32
 
@@ -131,12 +130,7 @@ module HumanName
       Native.human_name_byte_len(self)
     end
 
-    def matches_slug_or_localpart(string)
-      string = string.encode(UTF8) unless string.encoding == UTF8
-      Native.human_name_matches_slug_or_localpart(self, string)
-    end
-
-    JSON_PARTS = %w( surname given_name first_initial middle_initials middle_names suffix ).map(&:to_sym)
+    JSON_PARTS = %w( surname given_name first_initial middle_initials middle_names generational_suffix ).map(&:to_sym)
 
     def as_json(options = {})
       # We take an "options" argument for minimal compatibility with ActiveSupport,
