@@ -16,5 +16,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake', '~> 13.0.6'
   s.add_development_dependency 'rspec', '~> 3.4.0'
   s.add_development_dependency 'rubygems-tasks', '~> 0.2.5'
-  s.add_development_dependency 'pry', '~> 0.13.1'
+  s.add_development_dependency 'pry', '~> 0.14.2'
 end
