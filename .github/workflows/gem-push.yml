@@ -2,7 +2,7 @@ name: Ruby Gem
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "djudd-patch-1" ]
   pull_request:
     branches: [ "master" ]
 
