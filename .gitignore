@@ -37,3 +37,6 @@ Gemfile.lock
 target
 
 vagrant/.vagrant
+
+.DS_Store
+lib/.DS_Store
